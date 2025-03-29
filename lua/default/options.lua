@@ -43,6 +43,7 @@ local options = {
 	titlestring = "Neovim: %f%r%m",
 	icon = true,
 	iconstring = "",
+	colorcolumn = "80",
 }
 
 for k, v in pairs(options) do
