@@ -5,6 +5,10 @@ This is my personal configuration for Neovim. I 100% recommend actually knowing 
 $ git clone https://github.com/TomAintAround/neovim-config ~/.config/nvim
 ```
 
+## Prerequisites
+
+1. Install the following programs: make, ripgrep
+
 ## Recommendations
 
 1. Again for the love of every superior entity make sure you know what you are doing. This won't directly destroy your computer, but it will be mentally painful for you if you don't even know what Vim is.
