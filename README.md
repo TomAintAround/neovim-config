@@ -4,7 +4,12 @@ This is my personal configuration for Neovim.
 
 ## Prerequisite
 
-Ensure you have the following programs installed: `neovim (obvious), git (also obvious), make, ripgrep, gcc`
+Ensure you have the following programs installed:
+1. neovim (obviously)
+2. git (also obviously)
+3. make
+4. ripgrep
+5. gcc
 
 ## How to install
 
