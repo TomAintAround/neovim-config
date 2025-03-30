@@ -2,7 +2,7 @@
 
 This is my personal configuration for Neovim.
 
-## Prerequisite
+## Prerequisites
 
 Ensure you have the following programs installed:
 1. neovim (obviously)
