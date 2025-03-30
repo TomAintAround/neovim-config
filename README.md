@@ -7,7 +7,7 @@ $ git clone https://github.com/TomAintAround/neovim-config ~/.config/nvim
 
 ## Prerequisites
 
-1. Ensure you have the following programs installed: make, ripgrep, gcc
+1. Ensure you have the following programs installed: make, ripgrep, gcc, git
 
 ## Recommendations
 
