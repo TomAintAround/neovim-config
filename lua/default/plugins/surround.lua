@@ -1,8 +1,8 @@
-return {{
-    "kylechui/nvim-surround",
+return { {
+	"kylechui/nvim-surround",
 	enabled = true,
-    event = "VeryLazy",
+	event = "VeryLazy",
 	config = function()
 		require("nvim-surround").setup({})
 	end
-}}
+} }

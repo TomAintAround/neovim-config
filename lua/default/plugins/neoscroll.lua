@@ -1,4 +1,4 @@
-return {{
+return { {
 	"karb94/neoscroll.nvim",
 	enabled = true,
 	config = function()
@@ -6,4 +6,4 @@ return {{
 			duration_multiplier = 0.5,
 		})
 	end
-}}
+} }
