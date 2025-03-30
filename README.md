@@ -7,10 +7,10 @@ $ git clone https://github.com/TomAintAround/neovim-config ~/.config/nvim
 
 ## Prerequisites
 
-1. Install the following programs: make, ripgrep
+1. Ensure you have the following programs installed: make, ripgrep, gcc
 
 ## Recommendations
 
 1. Again for the love of every superior entity make sure you know what you are doing. This won't directly destroy your computer, but it will be mentally painful for you if you don't even know what Vim is.
 
-2. Run the following command inside of Neovim to see if you're missing something: `:checkhealth`
+2. Run the following commands inside of Neovim to see if you're missing something: `:checkhealth` and `:checkhealth nvim-treesitter`
