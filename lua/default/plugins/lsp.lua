@@ -12,6 +12,7 @@ return {{
 			"b0o/schemastore.nvim",
 			ft = "json",
 		},
+		"j-hui/fidget.nvim",
 	},
 	enabled = true,
 	config = function()
@@ -95,5 +96,7 @@ return {{
 				require("lspconfig")[language.name].setup(language.settings)
 			end
 		end
+
+		require("fidget").setup({})
 	end,
 }}
