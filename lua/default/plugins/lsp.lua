@@ -1,5 +1,6 @@
 return { {
 	"neovim/nvim-lspconfig",
+	enabled = true,
 	dependencies = {
 		{
 			"folke/lazydev.nvim",
@@ -14,7 +15,6 @@ return { {
 		},
 		"j-hui/fidget.nvim",
 	},
-	enabled = true,
 	config = function()
 		local languages = {
 			{
