@@ -19,6 +19,7 @@ return {
 			vim.keymap.set("n", "<leader>fd", require("telescope.builtin").diagnostics)
 			vim.keymap.set("n", "<leader>fg", require("telescope.builtin").grep_string)
 			vim.keymap.set("n", "<leader>fh", require("telescope.builtin").help_tags)
+			vim.keymap.set("n", "<leader>fk", require("telescope.builtin").keymaps)
 			vim.keymap.set("n", "<leader>gc", require("telescope.builtin").git_commits)
 			vim.keymap.set("n", "<leader>gb", require("telescope.builtin").git_branches)
 			vim.keymap.set("n", "<leader>gs", require("telescope.builtin").git_status)
