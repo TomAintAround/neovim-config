@@ -114,6 +114,9 @@ return { {
 				vim.keymap.set("n", "<leader>lrn", vim.lsp.buf.rename)
 				vim.keymap.set("n", "<leader>lca", vim.lsp.buf.code_action)
 				vim.keymap.set("n", "<leader>lsh", vim.lsp.buf.signature_help)
+				vim.keymap.set("n", "<leader>lrf", vim.lsp.buf.references)
+				vim.keymap.set("n", "<leader>ldf", vim.lsp.buf.definition)
+				vim.keymap.set("n", "<leader>lip", vim.lsp.buf.implementation)
 			end
 		})
 

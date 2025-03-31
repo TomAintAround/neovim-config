@@ -5,6 +5,10 @@ local keymaps = {
 	{ "n",          "<C-u>",     "<C-u>zz" },
 	{ "n",          "<C-d>",     "<C-d>zz" },
 
+	{ "n",          "<M-k>",     "<cmd>cprevious<CR>" },
+	{ "n",          "<M-j>",     "<cmd>cnext<CR>" },
+	{ "n",          "<M-c>",     "<cmd>cclose<CR>" },
+
 	{ "v",          "<leader>p", [["_dP]] },
 	{ { "n", "v" }, "<leader>d", "\"_d" },
 

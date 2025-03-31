@@ -21,12 +21,5 @@ return { {
 		vim.keymap.set("n", "<leader>gc", require("telescope.builtin").git_commits)
 		vim.keymap.set("n", "<leader>gb", require("telescope.builtin").git_branches)
 		vim.keymap.set("n", "<leader>gs", require("telescope.builtin").git_status)
-		vim.api.nvim_create_autocmd("LspAttach", {
-			callback = function()
-				vim.keymap.set("n", "<leader>lrf", require("telescope.builtin").lsp_references)
-				vim.keymap.set("n", "<leader>ldf", require("telescope.builtin").lsp_definitions)
-				vim.keymap.set("n", "<leader>lip", require("telescope.builtin").lsp_implementations)
-			end
-		})
 	end
 } }
