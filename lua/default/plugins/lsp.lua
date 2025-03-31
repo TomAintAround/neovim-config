@@ -103,7 +103,7 @@ return { {
 				if not client then return end
 
 				---@diagnostic disable-next-line
-				if client.supports_method("textDocument/formatting", 0) then
+				if client.supports_method("textDocument/formatting") then
 					vim.api.nvim_create_autocmd("BufWritePre", {
 						buffer = args.buf,
 						callback = function()
