@@ -13,7 +13,7 @@ This is my personal configuration for Neovim.
 * ripgrep
 * fd
 
-2. Ensure you have a nerd font installed ([check this repo](https://www.nerdfonts.com/)).
+2. Ensure you have a nerd font installed ([check this website](https://www.nerdfonts.com/)).
 
 ## How to install
 
