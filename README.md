@@ -9,7 +9,8 @@ Ensure you have the following programs installed:
 2. git (also obviously)
 3. make
 4. ripgrep
-5. gcc
+5. fd
+6. gcc
 
 ## How to install
 
