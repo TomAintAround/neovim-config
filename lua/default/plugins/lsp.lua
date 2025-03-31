@@ -101,7 +101,6 @@ return { {
 			callback = function(args)
 				local client = vim.lsp.get_client_by_id(args.data.client_id)
 				if not client then return end
-
 				---@diagnostic disable-next-line
 				if client.supports_method("textDocument/formatting") then
 					vim.api.nvim_create_autocmd("BufWritePre", {
@@ -111,6 +110,10 @@ return { {
 						end,
 					})
 				end
+
+				vim.keymap.set("n", "<leader>lrn", vim.lsp.buf.rename)
+				vim.keymap.set("n", "<leader>lca", vim.lsp.buf.code_action)
+				vim.keymap.set("n", "<leader>lsh", vim.lsp.buf.signature_help)
 			end
 		})
 
