@@ -2,7 +2,7 @@ return {
 	{
 		"folke/zen-mode.nvim",
 		enabled = true,
-		dependencies = { "folke/zen-mode.nvim" },
+		dependencies = { "folke/twilight.nvim" },
 		config = function()
 			vim.keymap.set("n", "<leader>z", function()
 				require("zen-mode").setup({
