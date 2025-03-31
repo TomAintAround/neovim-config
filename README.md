@@ -8,9 +8,10 @@ Ensure you have the following programs installed:
 1. neovim (obviously)
 2. git (also obviously)
 3. make
-4. ripgrep
-5. fd
+4. curl
 6. gcc
+7. ripgrep
+8. fd
 
 ## How to install
 

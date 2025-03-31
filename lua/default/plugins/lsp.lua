@@ -13,6 +13,7 @@ return { {
 			"b0o/schemastore.nvim",
 			ft = "json",
 		},
+		"saghen/blink.cmp",
 		"j-hui/fidget.nvim",
 	},
 	config = function()
@@ -91,9 +92,11 @@ return { {
 			},
 		}
 
+		local capabilities = require("blink.cmp").get_lsp_capabilities()
 		for _, language in pairs(languages) do
 			if vim.fn.executable(language.lsp) == 1 then
 				require("lspconfig")[language.name].setup(language.settings)
+				require("lspconfig")[language.name].setup({ capabilities = capabilities })
 			end
 		end
 
