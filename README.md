@@ -4,14 +4,16 @@ This is my personal configuration for Neovim.
 
 ## Prerequisites
 
-Ensure you have the following programs installed:
-1. neovim (obviously)
-2. git (also obviously)
-3. make
-4. curl
-6. gcc
-7. ripgrep
-8. fd
+1. Ensure you have the following programs installed:
+* neovim (obviously)
+* git (also obviously)
+* make
+* curl
+* gcc
+* ripgrep
+* fd
+
+2. Ensure you have a nerd font installed ((check this repo)[https://www.nerdfonts.com/]).
 
 ## How to install
 
