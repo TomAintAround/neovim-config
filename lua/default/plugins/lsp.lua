@@ -1,128 +1,169 @@
-return { {
-	"neovim/nvim-lspconfig",
-	enabled = true,
-	dependencies = {
-		{
-			"folke/lazydev.nvim",
-			ft = "lua",
-			opts = {
-				library = { { path = "${3rd}/luv/library", words = { "vim%.uv" } } },
-			},
-		},
-		{
-			"b0o/schemastore.nvim",
-			ft = "json",
-		},
-		"saghen/blink.cmp",
-		"j-hui/fidget.nvim",
-	},
-	config = function()
-		local languages = {
+return {
+	{
+		"neovim/nvim-lspconfig",
+		enabled = true,
+		dependencies = {
 			{
-				name = "arduino_language_server",
-				lsp = "arduino-language-server",
-				settings = {},
-			},
-			{
-				name = "basedpyright",
-				lsp = "basedpyright",
-				settings = {},
-			},
-			{
-				name = "bashls",
-				lsp = "bash-language-server",
-				settings = {},
-			},
-			{
-				name = "clangd",
-				lsp = "clangd",
-				settings = {},
-			},
-			{
-				name = "cssls",
-				lsp = "vscode-css-language-server",
-				settings = {},
-			},
-			{
-				name = "fish_lsp",
-				lsp = "fish-lsp",
-				settings = {},
-			},
-			{
-				name = "html",
-				lsp = "vscode-html-language-server",
-				settings = {},
-			},
-			{
-				name = "jsonls",
-				lsp = "vscode-json-language-server",
-				settings = {
-					settings = {
-						json = {
-							schemas = require("schemastore").json.schemas(),
-							validate = { enable = true },
-						},
-					},
+				"folke/lazydev.nvim",
+				ft = "lua",
+				opts = {
+					library = { { path = "${3rd}/luv/library", words = { "vim%.uv" } } },
 				},
 			},
 			{
-				name = "lua_ls",
-				lsp = "lua-language-server",
-				settings = {},
+				"b0o/schemastore.nvim",
+				ft = "json",
 			},
-			{
-				name = "marksman",
-				lsp = "marksman",
-				settings = {},
-			},
-			{
-				name = "nixd",
-				lsp = "nixd",
-				settings = {},
-			},
-			{
-				name = "taplo",
-				lsp = "taplo",
-				settings = {},
-			},
-			{
-				name = "yamlls",
-				lsp = "yaml-language-server",
-				settings = {},
-			},
-		}
+			"saghen/blink.cmp",
+			"stevearc/conform.nvim",
+			"j-hui/fidget.nvim",
+		},
+		config = function()
+			local languages = {
+				{
+					extensions = { "ino" },
+					lsp = "arduino_language_server",
+					lspExec = "arduino-language-server",
+					lspSettings = { capabilities = {} },
+					formatters = {},
+				},
+				{
+					extensions = { "py" },
+					lsp = "basedpyright",
+					lspExec = "basedpyright",
+					lspSettings = { capabilities = {} },
+					formatters = { "ruff" },
+				},
+				{
+					extensions = { "bash", "sh" },
+					lsp = "bashls",
+					lspExec = "bash-language-server",
+					lspSettings = { capabilities = {} },
+					formatters = {},
+				},
+				{
+					extensions = { "c", "h", "cpp", "hpp" },
+					lsp = "clangd",
+					lspExec = "clangd",
+					lspSettings = { capabilities = {} },
+					formatters = {},
+				},
+				{
+					extensions = { "css", "scss" },
+					lsp = "cssls",
+					lspExec = "vscode-css-language-server",
+					lspSettings = { capabilities = {} },
+					formatters = { "prettierd" },
+				},
+				{
+					extensions = { "fish" },
+					lsp = "fish_lsp",
+					lspExec = "fish-lsp",
+					lspSettings = { capabilities = {} },
+					formatters = {},
+				},
+				{
+					extensions = { "html" },
+					lsp = "html",
+					lspExec = "vscode-html-language-server",
+					lspSettings = { capabilities = {} },
+					formatters = { "prettierd" },
+				},
+				{
+					extensions = { "json" },
+					lsp = "jsonls",
+					lspExec = "vscode-json-language-server",
+					lspSettings = {
+						settings = {
+							json = {
+								schemas = require("schemastore").json.schemas(),
+								validate = { enable = true },
+							},
+						},
+						capabilities = {},
+					},
+					formatters = { "jq" },
+				},
+				{
+					extensions = { "lua" },
+					lsp = "lua_ls",
+					lspExec = "lua-language-server",
+					lspSettings = { capabilities = {} },
+					formatters = { "stylua" },
+				},
+				{
+					extensions = { "md" },
+					lsp = "marksman",
+					lspExec = "marksman",
+					lspSettings = { capabilities = {} },
+					formatters = {},
+				},
+				{
+					extensions = { "nix" },
+					lsp = "nixd",
+					lspExec = "nixd",
+					lspSettings = { capabilities = {} },
+					formatters = {},
+				},
+				{
+					extensions = { "toml" },
+					lsp = "taplo",
+					lspExec = "taplo",
+					lspSettings = { capabilities = {} },
+					formatters = {},
+				},
+				{
+					extensions = { "yaml", "yml" },
+					lsp = "yamlls",
+					lspExec = "yaml-language-server",
+					lspSettings = { capabilities = {} },
+					formatters = { "yamlfmt" },
+				},
+			}
 
-		local capabilities = require("blink.cmp").get_lsp_capabilities()
-		for _, language in pairs(languages) do
-			if vim.fn.executable(language.lsp) == 1 then
-				require("lspconfig")[language.name].setup(language.settings)
-				require("lspconfig")[language.name].setup({ capabilities = capabilities })
-			end
-		end
-
-		vim.api.nvim_create_autocmd("LspAttach", {
-			callback = function(args)
-				local client = vim.lsp.get_client_by_id(args.data.client_id)
-				if not client then return end
-				---@diagnostic disable-next-line
-				if client.supports_method("textDocument/formatting") then
-					vim.api.nvim_create_autocmd("BufWritePre", {
-						buffer = args.buf,
-						callback = function()
-							vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
-						end,
-					})
+			local capabilities = require("blink.cmp").get_lsp_capabilities()
+			for _, language in pairs(languages) do
+				if vim.fn.executable(language.lspExec) == 1 then
+					table.insert(language.lspSettings.capabilities, capabilities)
+					require("lspconfig")[language.lsp].setup(language.lspSettings)
 				end
-
-				vim.keymap.set("n", "<leader>lrn", vim.lsp.buf.rename)
-				vim.keymap.set("n", "<leader>lca", vim.lsp.buf.code_action)
-				vim.keymap.set("n", "<leader>lsh", vim.lsp.buf.signature_help)
-				vim.keymap.set("n", "<leader>lrf", vim.lsp.buf.references)
-				vim.keymap.set("n", "<leader>ldf", vim.lsp.buf.definition)
-				vim.keymap.set("n", "<leader>lip", vim.lsp.buf.implementation)
 			end
-		})
 
-		require("fidget").setup({})
-	end,
-} }
+			local conformSetup = {
+				formatters_by_ft = {},
+				default_format_opts = {
+					lsp_format = "fallback",
+				},
+				format_on_save = {
+					lsp_format = "fallback",
+					timeout_ms = 500,
+				},
+				format_after_save = {
+					lsp_format = "fallback",
+				},
+				log_level = vim.log.levels.ERROR,
+				notify_on_error = true,
+				notify_no_formatters = true,
+			}
+			for _, language in pairs(languages) do
+				for _, extension in pairs(language.extensions) do
+					conformSetup.formatters_by_ft[extension] = language.formatters
+				end
+			end
+			require("conform").setup(conformSetup)
+
+			vim.api.nvim_create_autocmd("LspAttach", {
+				callback = function()
+					vim.keymap.set("n", "<leader>lrn", vim.lsp.buf.rename)
+					vim.keymap.set("n", "<leader>lca", vim.lsp.buf.code_action)
+					vim.keymap.set("n", "<leader>lsh", vim.lsp.buf.signature_help)
+					vim.keymap.set("n", "<leader>lrf", vim.lsp.buf.references)
+					vim.keymap.set("n", "<leader>ldf", vim.lsp.buf.definition)
+					vim.keymap.set("n", "<leader>lip", vim.lsp.buf.implementation)
+				end,
+			})
+
+			require("fidget").setup({})
+		end,
+	},
+}
