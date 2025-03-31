@@ -8,27 +8,43 @@ autocmd("FileType", {
 	end,
 })
 
-autocmd('TextYankPost', {
-	pattern = '*',
+autocmd("TextYankPost", {
+	pattern = "*",
 	callback = function()
 		vim.highlight.on_yank({
-			higroup = 'IncSearch',
+			higroup = "IncSearch",
 			timeout = 40,
 		})
 	end,
 })
 
-autocmd('FileType', {
-	pattern = { 'blame', 'checkhealth', 'dbout', 'fugitive', 'fugitiveblame',
-		'gitsigns-blame', 'grug-far', 'help', 'httpResult', 'lspinfo',
-		'neotest-output', 'neotest-output-panel', 'neotest-summary', 'notify',
-		'PlenaryTestPopup', 'qf', 'spectre_panel', 'startuptime', 'tsplayground',
+autocmd("FileType", {
+	pattern = {
+		"blame",
+		"checkhealth",
+		"dbout",
+		"fugitive",
+		"fugitiveblame",
+		"gitsigns-blame",
+		"grug-far",
+		"help",
+		"httpResult",
+		"lspinfo",
+		"neotest-output",
+		"neotest-output-panel",
+		"neotest-summary",
+		"notify",
+		"PlenaryTestPopup",
+		"qf",
+		"spectre_panel",
+		"startuptime",
+		"tsplayground",
 	},
 	callback = function(event)
 		vim.bo[event.buf].buflisted = false
 		vim.schedule(function()
-			vim.keymap.set('n', 'q', function()
-				vim.cmd('close')
+			vim.keymap.set("n", "q", function()
+				vim.cmd("close")
 				pcall(vim.api.nvim_buf_delete, event.buf, { force = true })
 			end, {
 				buffer = event.buf,
