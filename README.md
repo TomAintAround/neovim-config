@@ -28,4 +28,4 @@ $ git clone https://github.com/TomAintAround/neovim-config ~/.config/nvim
 
 2. Run the following commands inside of Neovim to see if you're missing something: `:checkhealth` and `:checkhealth nvim-treesitter`.
 
-3. Install LSPs and formatters (check `lua/default/plugins/lsp.lua` to see which ones are configured).
+3. Install LSPs, formatters and debuggers (check `lua/default/plugins/lsp.lua` and `lua/default/plugins/debugger.lua` to see which ones are configured).
