@@ -19,7 +19,6 @@ local options = {
 	swapfile = false,
 	backup = false,
 	writebackup = false,
-	undodir = os.getenv("XDG_STATE_HOME") .. "/undodir",
 	undofile = true,
 	scrolloff = 8,
 	sidescrolloff = 8,
