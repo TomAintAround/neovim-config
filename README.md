@@ -12,6 +12,7 @@ This is my personal configuration for Neovim.
 * gcc
 * ripgrep
 * fd
+* man-pages
 
 2. Ensure you have a nerd font installed ([check this website](https://www.nerdfonts.com/)).
 
