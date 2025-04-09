@@ -54,8 +54,8 @@ return {
 					sh = "bash",
 				},
 			})
-			vim.keymap.set("n", "<leader>rr", require("code_runner").run_code)
-			vim.keymap.set("n", "<leader>rp", require("code_runner").run_project)
+			vim.keymap.set("n", "<leader>rr", require("code_runner").run_code, { desc = "Run code" })
+			vim.keymap.set("n", "<leader>rp", require("code_runner").run_project, { desc = "Run project" })
 		end,
 	},
 }

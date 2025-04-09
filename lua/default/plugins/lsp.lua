@@ -156,12 +156,12 @@ return {
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = lspGroup,
 				callback = function()
-					vim.keymap.set("n", "<leader>lrn", vim.lsp.buf.rename)
-					vim.keymap.set("n", "<leader>lca", vim.lsp.buf.code_action)
-					vim.keymap.set("n", "<leader>lsh", vim.lsp.buf.signature_help)
-					vim.keymap.set("n", "<leader>lrf", vim.lsp.buf.references)
-					vim.keymap.set("n", "<leader>ldf", vim.lsp.buf.definition)
-					vim.keymap.set("n", "<leader>lip", vim.lsp.buf.implementation)
+					vim.keymap.set("n", "<leader>lrn", vim.lsp.buf.rename, { desc = "Rename" })
+					vim.keymap.set("n", "<leader>lca", vim.lsp.buf.code_action, { desc = "View code actions" })
+					vim.keymap.set("n", "<leader>lsh", vim.lsp.buf.signature_help, { desc = "View signature help" })
+					vim.keymap.set("n", "<leader>lrf", vim.lsp.buf.references, { desc = "View references" })
+					vim.keymap.set("n", "<leader>ldf", vim.lsp.buf.definition, { desc = "View definition" })
+					vim.keymap.set("n", "<leader>lip", vim.lsp.buf.implementation, { desc = "View implementation" })
 				end,
 			})
 
