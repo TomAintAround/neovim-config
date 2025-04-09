@@ -3,6 +3,7 @@
   "auto-session": { "branch": "main", "commit": "0a1318557c03845f2e0dde347bc54507d1d8c34d" },
   "blink.cmp": { "branch": "main", "commit": "49f211fe5d729df53df4c042d7c3464cf47d199e" },
   "catppuccin": { "branch": "main", "commit": "5b5e3aef9ad7af84f463d17b5479f06b87d5c429" },
+  "cloak.nvim": { "branch": "main", "commit": "648aca6d33ec011dc3166e7af3b38820d01a71e4" },
   "code_runner.nvim": { "branch": "main", "commit": "cb9e1bc37c5e15a870f27730343f62ffd1d9c443" },
   "conform.nvim": { "branch": "master", "commit": "b1a75324ddf96b7bb84963a297b1ed334db087c0" },
   "csvview.nvim": { "branch": "main", "commit": "4058ccbb3099c5aeebacb00e963b44b2a0bbd45e" },
