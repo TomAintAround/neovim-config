@@ -26,7 +26,9 @@ return {
 					},
 				},
 			})
+			local macroGroup = vim.api.nvim_create_augroup("MacroRecording", { clear = true })
 			vim.api.nvim_create_autocmd("RecordingLeave", {
+				group = macroGroup,
 				callback = function()
 					-- Display a message when macro recording stops
 					print("Macro recording stopped")

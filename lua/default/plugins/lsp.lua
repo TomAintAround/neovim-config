@@ -152,7 +152,9 @@ return {
 			end
 			require("conform").setup(conformSetup)
 
+			local lspGroup = vim.api.nvim_create_augroup("Lsp", { clear = true })
 			vim.api.nvim_create_autocmd("LspAttach", {
+				group = lspGroup,
 				callback = function()
 					vim.keymap.set("n", "<leader>lrn", vim.lsp.buf.rename)
 					vim.keymap.set("n", "<leader>lca", vim.lsp.buf.code_action)

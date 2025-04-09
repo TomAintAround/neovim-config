@@ -8,8 +8,10 @@ autocmd("FileType", {
 	end,
 })
 
+local yankGroup = vim.api.nvim_create_augroup("YankText", { clear = true })
 autocmd("TextYankPost", {
 	pattern = "*",
+	group = yankGroup,
 	callback = function()
 		vim.highlight.on_yank({
 			higroup = "IncSearch",
