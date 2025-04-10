@@ -1,7 +1,11 @@
 vim.g.mapleader = " "
 local keymaps = {
 	{ "n", "J", "mzJ'z" },
-	{ "n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]] },
+	{
+		"n",
+		"<leader>s",
+		[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+	},
 	{ "n", "<C-u>", "<C-u>zz" },
 	{ "n", "<C-d>", "<C-d>zz" },
 

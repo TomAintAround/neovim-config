@@ -30,7 +30,8 @@ return {
 							prompt = "Format: 'file usb fqnb'",
 							default = vim.fn.getcwd() .. " /dev/USB0 ",
 						}, function(input)
-							local arguments = vim.split(input, " ", { trimempty = true })
+							local arguments =
+								vim.split(input, " ", { trimempty = true })
 							require("code_runner.commands").run_from_fn(
 								"arduino-cli compile --fqbn "
 									.. arguments[3]
@@ -54,8 +55,18 @@ return {
 					sh = "bash",
 				},
 			})
-			vim.keymap.set("n", "<leader>rr", require("code_runner").run_code, { desc = "Run code" })
-			vim.keymap.set("n", "<leader>rp", require("code_runner").run_project, { desc = "Run project" })
+			vim.keymap.set(
+				"n",
+				"<leader>rr",
+				require("code_runner").run_code,
+				{ desc = "Run code" }
+			)
+			vim.keymap.set(
+				"n",
+				"<leader>rp",
+				require("code_runner").run_project,
+				{ desc = "Run project" }
+			)
 		end,
 	},
 }

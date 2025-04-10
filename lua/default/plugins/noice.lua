@@ -26,7 +26,8 @@ return {
 					},
 				},
 			})
-			local macroGroup = vim.api.nvim_create_augroup("MacroRecording", { clear = true })
+			local macroGroup =
+				vim.api.nvim_create_augroup("MacroRecording", { clear = true })
 			vim.api.nvim_create_autocmd("RecordingLeave", {
 				group = macroGroup,
 				callback = function()

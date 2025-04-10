@@ -1,7 +1,14 @@
 local autocmd = vim.api.nvim_create_autocmd
 
 autocmd("FileType", {
-	pattern = { "gitcommit", "markdown", "NeogitCommitMessage", "typst", "plaintext", "text" },
+	pattern = {
+		"gitcommit",
+		"markdown",
+		"NeogitCommitMessage",
+		"typst",
+		"plaintext",
+		"text",
+	},
 	callback = function()
 		vim.opt_local.wrap = true
 		vim.opt_local.spell = true

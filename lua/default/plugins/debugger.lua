@@ -17,12 +17,19 @@ return {
 				display_callback = function(variable)
 					local name = string.lower(variable.name)
 					local value = string.lower(variable.value)
-					if name:match("secret") or name:match("api") or value:match("secret") or value:match("api") then
+					if
+						name:match("secret")
+						or name:match("api")
+						or value:match("secret")
+						or value:match("api")
+					then
 						return "*****"
 					end
 
 					if #variable.value > 15 then
-						return " " .. string.sub(variable.value, 1, 15) .. "... "
+						return " "
+							.. string.sub(variable.value, 1, 15)
+							.. "... "
 					end
 
 					return " " .. variable.value
@@ -50,7 +57,11 @@ return {
 				gdb = {
 					type = "executable",
 					command = "gdb",
-					args = { "--interpreter=dap", "--eval-command", "set print pretty on" },
+					args = {
+						"--interpreter=dap",
+						"--eval-command",
+						"set print pretty on",
+					},
 				},
 				["local-lua"] = {
 					type = "executable",
@@ -70,7 +81,11 @@ return {
 						console = "integratedTerminal",
 						cwd = "${fileDirname}",
 						program = function()
-							return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+							return vim.fn.input(
+								"Path to executable: ",
+								vim.fn.getcwd() .. "/",
+								"file"
+							)
 						end,
 						stopAtBeginningOfMainSubprogram = false,
 					},
@@ -80,11 +95,18 @@ return {
 						request = "attach",
 						console = "integratedTerminal",
 						program = function()
-							return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+							return vim.fn.input(
+								"Path to executable: ",
+								vim.fn.getcwd() .. "/",
+								"file"
+							)
 						end,
 						pid = function()
-							local name = vim.fn.input("Executable name (filter): ")
-							return require("dap.utils").pick_process({ filter = name })
+							local name =
+								vim.fn.input("Executable name (filter): ")
+							return require("dap.utils").pick_process({
+								filter = name,
+							})
 						end,
 						cwd = "${workspaceFolder}",
 					},
@@ -96,8 +118,10 @@ return {
 						name = "Launch file",
 						showDebugOutput = true,
 						pathBashdb = vim.fn.exepath("bashdb"),
-						pathBashdbLib = vim.fn.fnamemodify(vim.fn.resolve(vim.fn.exepath("bashdb")), ":p:h:h")
-							.. "/share/bashdb",
+						pathBashdbLib = vim.fn.fnamemodify(
+							vim.fn.resolve(vim.fn.exepath("bashdb")),
+							":p:h:h"
+						) .. "/share/bashdb",
 						trace = true,
 						file = "${file}",
 						program = "${file}",
@@ -151,7 +175,11 @@ return {
 				require("dap").toggle_breakpoint()
 			end, { desc = "Toggle breakpoint" })
 			vim.keymap.set("n", "<Leader>dl", function()
-				require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
+				require("dap").set_breakpoint(
+					nil,
+					nil,
+					vim.fn.input("Log point message: ")
+				)
 			end, { desc = "Set breakpoint with message" })
 		end,
 	},

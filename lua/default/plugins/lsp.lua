@@ -7,7 +7,9 @@ return {
 				"folke/lazydev.nvim",
 				ft = "lua",
 				opts = {
-					library = { { path = "${3rd}/luv/library", words = { "vim%.uv" } } },
+					library = {
+						{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+					},
 				},
 			},
 			{
@@ -124,8 +126,13 @@ return {
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
 			for _, language in pairs(languages) do
 				if vim.fn.executable(language.lspExec) == 1 then
-					table.insert(language.lspSettings.capabilities, capabilities)
-					require("lspconfig")[language.lsp].setup(language.lspSettings)
+					table.insert(
+						language.lspSettings.capabilities,
+						capabilities
+					)
+					require("lspconfig")[language.lsp].setup(
+						language.lspSettings
+					)
 				end
 			end
 
@@ -147,21 +154,53 @@ return {
 			}
 			for _, language in pairs(languages) do
 				for _, extension in pairs(language.extensions) do
-					conformSetup.formatters_by_ft[extension] = language.formatters
+					conformSetup.formatters_by_ft[extension] =
+						language.formatters
 				end
 			end
 			require("conform").setup(conformSetup)
 
-			local lspGroup = vim.api.nvim_create_augroup("Lsp", { clear = true })
+			local lspGroup =
+				vim.api.nvim_create_augroup("Lsp", { clear = true })
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = lspGroup,
 				callback = function()
-					vim.keymap.set("n", "<leader>lrn", vim.lsp.buf.rename, { desc = "Rename" })
-					vim.keymap.set("n", "<leader>lca", vim.lsp.buf.code_action, { desc = "View code actions" })
-					vim.keymap.set("n", "<leader>lsh", vim.lsp.buf.signature_help, { desc = "View signature help" })
-					vim.keymap.set("n", "<leader>lrf", vim.lsp.buf.references, { desc = "View references" })
-					vim.keymap.set("n", "<leader>ldf", vim.lsp.buf.definition, { desc = "View definition" })
-					vim.keymap.set("n", "<leader>lip", vim.lsp.buf.implementation, { desc = "View implementation" })
+					vim.keymap.set(
+						"n",
+						"<leader>lrn",
+						vim.lsp.buf.rename,
+						{ desc = "Rename" }
+					)
+					vim.keymap.set(
+						"n",
+						"<leader>lca",
+						vim.lsp.buf.code_action,
+						{ desc = "View code actions" }
+					)
+					vim.keymap.set(
+						"n",
+						"<leader>lsh",
+						vim.lsp.buf.signature_help,
+						{ desc = "View signature help" }
+					)
+					vim.keymap.set(
+						"n",
+						"<leader>lrf",
+						vim.lsp.buf.references,
+						{ desc = "View references" }
+					)
+					vim.keymap.set(
+						"n",
+						"<leader>ldf",
+						vim.lsp.buf.definition,
+						{ desc = "View definition" }
+					)
+					vim.keymap.set(
+						"n",
+						"<leader>lip",
+						vim.lsp.buf.implementation,
+						{ desc = "View implementation" }
+					)
 				end,
 			})
 
