@@ -7,7 +7,12 @@ return {
 		},
 		config = function()
 			require("todo-comments").setup()
-			vim.keymap.set("n", "<leader>t", vim.cmd.TodoTelescope)
+			vim.keymap.set(
+				"n",
+				"<leader>t",
+				vim.cmd.TodoTelescope,
+				{ desc = "Fuzzy find todo comments" }
+			)
 		end,
 	},
 }
