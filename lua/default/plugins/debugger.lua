@@ -12,6 +12,7 @@ return {
 			local dap = require("dap")
 			local dapui = require("dapui")
 			dapui.setup()
+
 			---@diagnostic disable-next-line: missing-fields
 			require("nvim-dap-virtual-text").setup({
 				display_callback = function(variable)
@@ -149,6 +150,7 @@ return {
 					},
 				},
 			}
+			require("dap-python").setup()
 
 			vim.keymap.set("n", "<F5>", function()
 				require("dap").restart()
