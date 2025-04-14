@@ -2,11 +2,11 @@ name: Format
 on:
   push:
     paths:
-      - "*.lua"
+      - "**/*.lua"
       - ".stylua.toml"
   pull_request:
     paths:
-      - "*.lua"
+      - "**/*.lua"
       - ".stylua.toml"
 jobs:
   format:
