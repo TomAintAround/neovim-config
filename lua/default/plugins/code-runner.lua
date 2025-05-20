@@ -18,11 +18,16 @@ return {
 					y = 0.5,
 				},
 				filetype = {
-					c = {
-						"cd $dir &&",
-						"gcc $fileName -Wall -Wextra -o $fileNameWithoutExt -lm -g &&",
-						"$dir/$fileNameWithoutExt",
-					},
+					c = function()
+						vim.ui.input({
+							prompt = "Format: 'arg1' 'arg2' ...",
+						}, function(input)
+							require("code_runner.commands").run_from_fn(
+								"cd $dir && gcc $fileName -Wall -Wextra -o $fileNameWithoutExt -lm -g -std=c11 && $dir/$fileNameWithoutExt "
+									.. input
+							)
+						end)
+					end,
 					fish = "fish",
 					-- I'm honestly not sure if this even works or not
 					ino = function()
