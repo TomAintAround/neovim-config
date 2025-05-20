@@ -38,7 +38,7 @@ return {
 							local arguments =
 								vim.split(input, " ", { trimempty = true })
 							require("code_runner.commands").run_from_fn(
-								"arduino-cli compile --fqbn "
+								"cd $dir && arduino-cli compile --fqbn "
 									.. arguments[3]
 									.. " "
 									.. arguments[1]
