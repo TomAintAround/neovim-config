@@ -59,6 +59,13 @@ return {
 					python = "python -u",
 					sh = "bash",
 				},
+				project = {
+					["~/Documents/Projects/University/CSnakeTUI"] = {
+						name = "CSnakeTUI",
+						description = "A TUI snake game made in C",
+						command = "make",
+					},
+				},
 			})
 			vim.keymap.set(
 				"n",
