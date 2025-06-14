@@ -16,7 +16,6 @@ return {
 				"b0o/schemastore.nvim",
 				ft = "json",
 			},
-			"saghen/blink.cmp",
 			"stevearc/conform.nvim",
 			"j-hui/fidget.nvim",
 		},
@@ -26,49 +25,56 @@ return {
 					extensions = { "ino" },
 					lsp = "arduino_language_server",
 					lspExec = "arduino-language-server",
-					lspSettings = { capabilities = {} },
+					lspSettings = {},
 					formatters = {},
 				},
 				{
 					extensions = { "py" },
 					lsp = "basedpyright",
 					lspExec = "basedpyright",
-					lspSettings = { capabilities = {} },
+					lspSettings = {},
 					formatters = { "ruff" },
 				},
 				{
 					extensions = { "bash", "sh" },
 					lsp = "bashls",
 					lspExec = "bash-language-server",
-					lspSettings = { capabilities = {} },
+					lspSettings = {},
 					formatters = {},
 				},
 				{
 					extensions = { "c", "h", "cpp", "hpp" },
 					lsp = "clangd",
 					lspExec = "clangd",
-					lspSettings = { capabilities = {} },
+					lspSettings = {},
 					formatters = {},
 				},
 				{
 					extensions = { "css", "scss" },
 					lsp = "cssls",
 					lspExec = "vscode-css-language-server",
-					lspSettings = { capabilities = {} },
+					lspSettings = {},
 					formatters = { "prettierd" },
 				},
 				{
 					extensions = { "fish" },
 					lsp = "fish_lsp",
 					lspExec = "fish-lsp",
-					lspSettings = { capabilities = {} },
+					lspSettings = {},
 					formatters = {},
 				},
 				{
 					extensions = { "html" },
 					lsp = "html",
 					lspExec = "vscode-html-language-server",
-					lspSettings = { capabilities = {} },
+					lspSettings = {},
+					formatters = { "prettierd" },
+				},
+				{
+					extensions = { "js", "ts", "jsx", "tsx" },
+					lsp = "eslint",
+					lspExec = "vscode-eslint-language-server",
+					lspSettings = {},
 					formatters = { "prettierd" },
 				},
 				{
@@ -82,7 +88,6 @@ return {
 								validate = { enable = true },
 							},
 						},
-						capabilities = {},
 					},
 					formatters = { "jq" },
 				},
@@ -90,49 +95,43 @@ return {
 					extensions = { "lua" },
 					lsp = "lua_ls",
 					lspExec = "lua-language-server",
-					lspSettings = { capabilities = {} },
+					lspSettings = {},
 					formatters = { "stylua" },
 				},
 				{
 					extensions = { "md" },
 					lsp = "marksman",
 					lspExec = "marksman",
-					lspSettings = { capabilities = {} },
+					lspSettings = {},
 					formatters = {},
 				},
 				{
 					extensions = { "nix" },
 					lsp = "nixd",
 					lspExec = "nixd",
-					lspSettings = { capabilities = {} },
+					lspSettings = {},
 					formatters = {},
 				},
 				{
 					extensions = { "toml" },
 					lsp = "taplo",
 					lspExec = "taplo",
-					lspSettings = { capabilities = {} },
+					lspSettings = {},
 					formatters = {},
 				},
 				{
 					extensions = { "yaml", "yml" },
 					lsp = "yamlls",
 					lspExec = "yaml-language-server",
-					lspSettings = { capabilities = {} },
+					lspSettings = {},
 					formatters = { "yamlfmt" },
 				},
 			}
 
-			local capabilities = require("blink.cmp").get_lsp_capabilities()
 			for _, language in pairs(languages) do
 				if vim.fn.executable(language.lspExec) == 1 then
-					table.insert(
-						language.lspSettings.capabilities,
-						capabilities
-					)
-					require("lspconfig")[language.lsp].setup(
-						language.lspSettings
-					)
+					vim.lsp.config(language.lsp, language.lspSettings)
+					vim.lsp.enable(language.lsp)
 				end
 			end
 
