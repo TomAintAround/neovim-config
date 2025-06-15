@@ -18,6 +18,8 @@ return {
 					y = 0.5,
 				},
 				filetype = {
+					bash = "bash",
+					sh = "bash",
 					c = function()
 						vim.ui.input({
 							prompt = "Format: 'arg1' 'arg2' ...",
@@ -57,7 +59,6 @@ return {
 					end,
 					lua = "lua",
 					python = "python -u",
-					sh = "bash",
 				},
 				project = {
 					["~/Documents/Projects/University/CSnakeTUI"] = {
