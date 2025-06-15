@@ -56,6 +56,19 @@ return {
 					command = vim.fn.getenv("XDG_STATE_HOME")
 						.. "/nvim/debuggers/OpenDebugAD7",
 				},
+				["pwa-node"] = {
+					type = "server",
+					host = "localhost",
+					port = "${port}",
+					executable = {
+						command = "node",
+						args = {
+							vim.fn.getenv("XDG_STATE_HOME")
+								.. "/nvim/debuggers/dapDebugServer.js",
+							"${port}",
+						},
+					},
+				},
 			}
 			dap.configurations = {
 				c = {
@@ -93,6 +106,24 @@ return {
 			}
 			dap.configurations.cpp = dap.configurations.c
 			dap.configurations.rust = dap.configurations.c
+			local jsBasedLanguages = {
+				"javascript",
+				"typescript",
+				"javascriptreact",
+				"typescriptreact",
+			}
+			for _, language in pairs(jsBasedLanguages) do
+				dap.configurations[language] = {
+					{
+						type = "pwa-node",
+						request = "launch",
+						name = "Launch file",
+						program = "${file}",
+						cwd = "${workspaceFolder}",
+						console = "integratedTerminal",
+					},
+				}
+			end
 			require("dap-python").setup()
 
 			vim.keymap.set("n", "<F5>", function()

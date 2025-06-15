@@ -57,6 +57,7 @@ return {
 							)
 						end)
 					end,
+					javascript = "node",
 					lua = "lua",
 					python = "python -u",
 				},
