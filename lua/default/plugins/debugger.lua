@@ -50,11 +50,6 @@ return {
 			end
 
 			dap.adapters = {
-				bashdb = {
-					type = "executable",
-					command = "bashdb",
-					name = "bashdb",
-				},
 				gdb = {
 					type = "executable",
 					command = "gdb",
@@ -62,14 +57,6 @@ return {
 						"--interpreter=dap",
 						"--eval-command",
 						"set print pretty on",
-					},
-				},
-				["local-lua"] = {
-					type = "executable",
-					command = "node",
-					args = {
-						os.getenv("HOME")
-							.. "/.vscode/extensions/tomblind.local-lua-debugger-vscode-0.3.3/extension/debugAdapter.js",
 					},
 				},
 			}
@@ -112,44 +99,6 @@ return {
 						cwd = "${workspaceFolder}",
 					},
 				},
-				sh = {
-					{
-						type = "bashdb",
-						request = "launch",
-						name = "Launch file",
-						showDebugOutput = true,
-						pathBashdb = vim.fn.exepath("bashdb"),
-						pathBashdbLib = vim.fn.fnamemodify(
-							vim.fn.resolve(vim.fn.exepath("bashdb")),
-							":p:h:h"
-						) .. "/share/bashdb",
-						trace = true,
-						file = "${file}",
-						program = "${file}",
-						cwd = "${workspaceFolder}",
-						pathCat = "cat",
-						pathBash = vim.fn.exepath("bash"),
-						pathMkfifo = vim.fn.exepath("mkfifo"),
-						pathPkill = vim.fn.exepath("pkill"),
-						args = {},
-						env = {},
-						terminalKind = "integrated",
-					},
-				},
-				lua = {
-					{
-						name = "Current file (local-lua-dbg, lua)",
-						type = "local-lua",
-						request = "launch",
-						cwd = "${workspaceFolder}",
-						program = {
-							lua = "lua5.2",
-							file = "${file}",
-						},
-						args = {},
-					},
-				},
-			}
 			require("dap-python").setup()
 
 			vim.keymap.set("n", "<F5>", function()
