@@ -9,6 +9,7 @@ local keymaps = {
 	{ "n", "<C-u>", "<C-u>zz" },
 	{ "n", "<C-d>", "<C-d>zz" },
 
+	{ "n", "gh", vim.diagnostic.open_float },
 	{ "n", "<M-k>", vim.cmd.cprevious },
 	{ "n", "<M-j>", vim.cmd.cnext },
 	{ "n", "<M-c>", vim.cmd.cclose },
