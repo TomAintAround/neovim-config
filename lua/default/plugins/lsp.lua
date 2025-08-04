@@ -159,50 +159,6 @@ return {
 			end
 			require("conform").setup(conformSetup)
 
-			local lspGroup =
-				vim.api.nvim_create_augroup("Lsp", { clear = true })
-			vim.api.nvim_create_autocmd("LspAttach", {
-				group = lspGroup,
-				callback = function()
-					vim.keymap.set(
-						"n",
-						"<leader>lrn",
-						vim.lsp.buf.rename,
-						{ desc = "Rename" }
-					)
-					vim.keymap.set(
-						"n",
-						"<leader>lca",
-						vim.lsp.buf.code_action,
-						{ desc = "View code actions" }
-					)
-					vim.keymap.set(
-						"n",
-						"<leader>lsh",
-						vim.lsp.buf.signature_help,
-						{ desc = "View signature help" }
-					)
-					vim.keymap.set(
-						"n",
-						"<leader>lrf",
-						vim.lsp.buf.references,
-						{ desc = "View references" }
-					)
-					vim.keymap.set(
-						"n",
-						"<leader>ldf",
-						vim.lsp.buf.definition,
-						{ desc = "View definition" }
-					)
-					vim.keymap.set(
-						"n",
-						"<leader>lip",
-						vim.lsp.buf.implementation,
-						{ desc = "View implementation" }
-					)
-				end,
-			})
-
 			require("fidget").setup({})
 		end,
 	},
