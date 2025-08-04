@@ -5,7 +5,7 @@ return {
 		config = function()
 			vim.keymap.set(
 				{ "n", "v" },
-				"<leader>gp",
+				"gp",
 				require("gitportal").open_file_in_browser,
 				{ desc = "Open text selected in Github" }
 			)
@@ -21,31 +21,31 @@ return {
 
 			vim.keymap.set(
 				"n",
-				"<leader>gl",
+				"gl",
 				require("gitsigns").blame,
 				{ desc = "Open git blame panel" }
 			)
 			vim.keymap.set(
 				"n",
-				"<leader>gll",
+				"gll",
 				require("gitsigns").blame_line,
 				{ desc = "See git blame inline" }
 			)
 			vim.keymap.set(
 				"n",
-				"<leader>ghh",
+				"ghh",
 				require("gitsigns").setqflist,
 				{ desc = "See all git hunks in QuickFix" }
 			)
 			vim.keymap.set(
 				"n",
-				"<leader>ghr",
+				"ghr",
 				require("gitsigns").reset_hunk,
 				{ desc = "Reset hunk" }
 			)
 			vim.keymap.set(
 				"n",
-				"<leader>ghp",
+				"ghp",
 				require("gitsigns").preview_hunk_inline,
 				{ desc = "Preview changes made in hunk" }
 			)
