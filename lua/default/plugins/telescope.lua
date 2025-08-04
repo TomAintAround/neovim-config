@@ -45,24 +45,6 @@ return {
 				require("telescope.builtin").keymaps,
 				{ desc = "Find keymaps" }
 			)
-			vim.keymap.set(
-				"n",
-				"<leader>gc",
-				require("telescope.builtin").git_commits,
-				{ desc = "Find git commits" }
-			)
-			vim.keymap.set(
-				"n",
-				"<leader>gb",
-				require("telescope.builtin").git_branches,
-				{ desc = "Find git branches" }
-			)
-			vim.keymap.set(
-				"n",
-				"<leader>gs",
-				require("telescope.builtin").git_status,
-				{ desc = "Find changes in repo" }
-			)
 		end,
 	},
 }
