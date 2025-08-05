@@ -43,6 +43,7 @@ local options = {
 	icon = true,
 	iconstring = "",
 	colorcolumn = "80",
+	sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions",
 }
 
 for k, v in pairs(options) do
