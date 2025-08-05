@@ -115,7 +115,7 @@ return {
 					lsp = "nixd",
 					lspExec = "nixd",
 					lspSettings = {},
-					formatters = {},
+					formatters = { "alejandra" },
 				},
 				{
 					extensions = { "toml" },
