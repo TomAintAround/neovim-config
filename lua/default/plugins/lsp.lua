@@ -29,7 +29,7 @@ return {
 					formatters = {},
 				},
 				{
-					extensions = { "py" },
+					extensions = { "python" },
 					lsp = "basedpyright",
 					lspExec = "basedpyright",
 					lspSettings = {},
@@ -71,7 +71,12 @@ return {
 					formatters = { "prettierd" },
 				},
 				{
-					extensions = { "js", "ts", "jsx", "tsx" },
+					extensions = {
+						"javascript",
+						"typescript",
+						"javascriptreact",
+						"typescriptreact",
+					},
 					lsp = "eslint",
 					lspExec = "vscode-eslint-language-server",
 					lspSettings = {},
@@ -99,7 +104,7 @@ return {
 					formatters = { "stylua" },
 				},
 				{
-					extensions = { "md" },
+					extensions = { "markdown" },
 					lsp = "marksman",
 					lspExec = "marksman",
 					lspSettings = {},
