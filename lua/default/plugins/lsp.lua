@@ -33,7 +33,7 @@ return {
 					lsp = "basedpyright",
 					lspExec = "basedpyright",
 					lspSettings = {},
-					formatters = { "ruff" },
+					formatters = { "black" },
 				},
 				{
 					extensions = { "bash", "sh" },
