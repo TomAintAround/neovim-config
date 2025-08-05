@@ -114,7 +114,27 @@ return {
 					extensions = { "nix" },
 					lsp = "nixd",
 					lspExec = "nixd",
-					lspSettings = {},
+					lspSettings = {
+						settings = {
+							nixpkgs = {
+								expr = "import (builtins.getFlake \"/etc/nixos\").inputs.nixpkgs { }",
+							},
+							options = {
+								nixos = {
+									expr = {
+										"(builtins.getFlake \"/etc/nixos\").nixosConfigurations.tomm@desktop.options",
+										"(builtins.getFlake \"/etc/nixos\").nixosConfigurations.tomm@laptop.options",
+									},
+								},
+								home_manager = {
+									expr = {
+										"(builtins.getFlake \"$XDG_CONFIG_HOME/home-manager\").homeConfigurations.tomm@desktop.options",
+										"(builtins.getFlake \"$XDG_CONFIG_HOME/home-manager\").homeConfigurations.tomm@laptop.options",
+									},
+								},
+							},
+						},
+					},
 					formatters = { "alejandra" },
 				},
 				{
