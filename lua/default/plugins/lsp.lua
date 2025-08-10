@@ -145,6 +145,13 @@ return {
 					formatters = {},
 				},
 				{
+					extensions = { "xml" },
+					lsp = "lemminx",
+					lspExec = "lemminx",
+					lspSettings = {},
+					formatters = {},
+				},
+				{
 					extensions = { "yaml", "yml" },
 					lsp = "yamlls",
 					lspExec = "yaml-language-server",
