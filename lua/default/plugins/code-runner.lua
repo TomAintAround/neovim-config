@@ -61,6 +61,18 @@ return {
 					lua = "lua",
 					python = "python -u",
 				},
+				project = {
+					[vim.fn.getenv("XDG_CONFIG_HOME") .. "/home-manager/modules/des-wms/wm/astal"] = {
+						name = "Astal widgets",
+						description = "My personal widgets, using astal",
+						command = "make",
+					},
+					[vim.fn.getenv("HOME") .. "/Documents/Projects/University/CSnakeTUI"] = {
+						name = "CSNakeTUI",
+						description = "My snake-like game played on a TUI, made in C",
+						command = "make",
+					},
+				},
 			})
 			vim.keymap.set(
 				"n",
