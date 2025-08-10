@@ -47,4 +47,11 @@ return {
 		"HiPhish/rainbow-delimiters.nvim",
 		enabled = true,
 	},
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		enabled = true,
+		config = function()
+			require("ibl").setup()
+		end,
+	},
 }
