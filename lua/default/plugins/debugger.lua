@@ -54,7 +54,7 @@ return {
 					id = "cppdbg",
 					type = "executable",
 					command = vim.fn.getenv("XDG_STATE_HOME")
-						.. "/nvim/debuggers/OpenDebugAD7",
+						.. "/home-manager/modules/neovim/debuggers/OpenDebugAD7",
 				},
 				["pwa-node"] = {
 					type = "server",
