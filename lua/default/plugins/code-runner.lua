@@ -62,7 +62,7 @@ return {
 					python = "python -u",
 				},
 				project = {
-					[vim.fn.getenv("XDG_CONFIG_HOME") .. "/home-manager/modules/des-wms/wm/astal"] = {
+					[vim.fn.getenv("XDG_CONFIG_HOME") .. "/home-manager/modules/des-wms/wm/ottw"] = {
 						name = "Astal widgets",
 						description = "My personal widgets, using astal",
 						command = "make",
