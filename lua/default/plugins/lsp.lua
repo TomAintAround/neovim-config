@@ -149,7 +149,7 @@ return {
 					lsp = "lemminx",
 					lspExec = "lemminx",
 					lspSettings = {},
-					formatters = {},
+					formatters = { "xmllint" },
 				},
 				{
 					extensions = { "yaml", "yml" },
