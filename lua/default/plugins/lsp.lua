@@ -50,6 +50,13 @@ return {
 					formatters = {},
 				},
 				{
+					extensions = { "cmake" },
+					lsp = "cmake",
+					lspExec = "cmake-language-server",
+					lspSettings = {},
+					formatters = { "cmake-format" },
+				},
+				{
 					extensions = { "css", "scss" },
 					lsp = "cssls",
 					lspExec = "vscode-css-language-server",
@@ -156,7 +163,7 @@ return {
 					lsp = "yamlls",
 					lspExec = "yaml-language-server",
 					lspSettings = {},
-					formatters = { "yamlfmt" },
+					formatters = { "prettierd" },
 				},
 			}
 
