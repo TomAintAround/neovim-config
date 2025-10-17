@@ -33,7 +33,15 @@ return {
 					extensions = { "python" },
 					lsp = "basedpyright",
 					lspExec = "basedpyright",
-					lspSettings = {},
+					lspSettings = {
+						settings = {
+							basedpyright = {
+								analysis = {
+									typeCheckingMode = "standard",
+								},
+							},
+						},
+					},
 					formatters = { "black" },
 				},
 				{
