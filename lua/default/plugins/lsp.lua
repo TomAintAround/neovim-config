@@ -16,6 +16,7 @@ return {
 				"b0o/schemastore.nvim",
 				ft = "json",
 			},
+			"mfussenegger/nvim-jdtls",
 			"stevearc/conform.nvim",
 			"j-hui/fidget.nvim",
 		},
@@ -88,6 +89,19 @@ return {
 					lspExec = "vscode-eslint-language-server",
 					lspSettings = {},
 					formatters = { "prettierd" },
+				},
+				{
+					extensions = { "java" },
+					lsp = "jdtls",
+					lspExec = "jdtls",
+					lspSettings = {
+						init_options = {
+							bundles = {
+								vim.fn.getenv("XDG_STATE_HOME")
+									.. "/home-manager/modules/neovim/debuggers/com.microsoft.java.debug.plugin.jar",
+							},
+						},
+					},
 				},
 				{
 					extensions = { "json" },
