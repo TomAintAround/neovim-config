@@ -25,7 +25,7 @@ return {
 							prompt = "Format: 'arg1' 'arg2' ...",
 						}, function(input)
 							require("code_runner.commands").run_from_fn(
-								"cd $dir && gcc $fileName -Wall -Wextra -o $fileNameWithoutExt -lm -g -std=c11 && $dir/$fileNameWithoutExt "
+								"cd $dir && gcc $fileName -Wall -Wextra -o $fileNameWithoutExt -lm -g -std=c23 && $dir/$fileNameWithoutExt "
 									.. input
 							)
 						end)
