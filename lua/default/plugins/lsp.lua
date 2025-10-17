@@ -26,8 +26,6 @@ return {
 					extensions = { "ino" },
 					lsp = "arduino_language_server",
 					lspExec = "arduino-language-server",
-					lspSettings = {},
-					formatters = {},
 				},
 				{
 					extensions = { "python" },
@@ -48,42 +46,33 @@ return {
 					extensions = { "bash", "sh" },
 					lsp = "bashls",
 					lspExec = "bash-language-server",
-					lspSettings = {},
-					formatters = {},
 				},
 				{
 					extensions = { "c", "h", "cpp", "hpp" },
 					lsp = "clangd",
 					lspExec = "clangd",
-					lspSettings = {},
-					formatters = {},
 				},
 				{
 					extensions = { "cmake" },
 					lsp = "cmake",
 					lspExec = "cmake-language-server",
-					lspSettings = {},
 					formatters = { "cmake-format" },
 				},
 				{
 					extensions = { "css", "scss" },
 					lsp = "cssls",
 					lspExec = "vscode-css-language-server",
-					lspSettings = {},
 					formatters = { "prettierd" },
 				},
 				{
 					extensions = { "fish" },
 					lsp = "fish_lsp",
 					lspExec = "fish-lsp",
-					lspSettings = {},
-					formatters = {},
 				},
 				{
 					extensions = { "html" },
 					lsp = "html",
 					lspExec = "vscode-html-language-server",
-					lspSettings = {},
 					formatters = { "prettierd" },
 				},
 				{
@@ -95,7 +84,6 @@ return {
 					},
 					lsp = "eslint",
 					lspExec = "vscode-eslint-language-server",
-					lspSettings = {},
 					formatters = { "prettierd" },
 				},
 				{
@@ -129,15 +117,12 @@ return {
 					extensions = { "lua" },
 					lsp = "lua_ls",
 					lspExec = "lua-language-server",
-					lspSettings = {},
 					formatters = { "stylua" },
 				},
 				{
 					extensions = { "markdown" },
 					lsp = "marksman",
 					lspExec = "marksman",
-					lspSettings = {},
-					formatters = {},
 				},
 				{
 					extensions = { "nix" },
@@ -170,28 +155,24 @@ return {
 					extensions = { "toml" },
 					lsp = "taplo",
 					lspExec = "taplo",
-					lspSettings = {},
-					formatters = {},
 				},
 				{
 					extensions = { "xml" },
 					lsp = "lemminx",
 					lspExec = "lemminx",
-					lspSettings = {},
 					formatters = { "xmllint" },
 				},
 				{
 					extensions = { "yaml", "yml" },
 					lsp = "yamlls",
 					lspExec = "yaml-language-server",
-					lspSettings = {},
 					formatters = { "prettierd" },
 				},
 			}
 
 			for _, language in pairs(languages) do
 				if vim.fn.executable(language.lspExec) == 1 then
-					vim.lsp.config(language.lsp, language.lspSettings)
+					vim.lsp.config(language.lsp, language.lspSettings or {})
 					vim.lsp.enable(language.lsp)
 				end
 			end
@@ -214,8 +195,8 @@ return {
 			}
 			for _, language in pairs(languages) do
 				for _, extension in pairs(language.extensions) do
-					conformSetup.formatters_by_ft[extension] =
-						language.formatters
+					conformSetup.formatters_by_ft[extension] = language.formatters
+						or {}
 				end
 			end
 			require("conform").setup(conformSetup)
