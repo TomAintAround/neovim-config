@@ -8,7 +8,7 @@ return {
 			vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePre" }, {
 				group = vim.api.nvim_create_augroup("Indent", { clear = true }),
 				callback = function()
-					guessIndent.set_from_buffer()
+					guessIndent.set_from_buffer(nil, nil, true)
 				end,
 			})
 		end,
