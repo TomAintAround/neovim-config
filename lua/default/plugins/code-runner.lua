@@ -23,6 +23,7 @@ return {
 					c = function()
 						vim.ui.input({
 							prompt = "Format: 'arg1' 'arg2' ...",
+							completion = "file_in_path",
 						}, function(input)
 							require("code_runner.commands").run_from_fn(
 								"cd $dir && gcc $fileName -Wall -Wextra -o $fileNameWithoutExt -lm -g -std=c23 && $dir/$fileNameWithoutExt "
@@ -36,6 +37,7 @@ return {
 						vim.ui.input({
 							prompt = "Format: 'file usb fqnb'",
 							default = vim.fn.getcwd() .. " /dev/USB0 ",
+							completion = "file_in_path",
 						}, function(input)
 							local arguments =
 								vim.split(input, " ", { trimempty = true })
