@@ -61,7 +61,16 @@ return {
 					end,
 					javascript = "node",
 					lua = "lua",
-					python = "python -u",
+					python = function()
+						vim.ui.input({
+							prompt = "Format: 'arg1' 'arg2' ...",
+							completion = "file_in_path",
+						}, function(input)
+							require("code_runner.commands").run_from_fn(
+								"python -u " .. input
+							)
+						end)
+					end,
 				},
 			})
 			vim.keymap.set(
