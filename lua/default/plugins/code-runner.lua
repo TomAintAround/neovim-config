@@ -22,7 +22,7 @@ return {
 					sh = "bash",
 					c = function()
 						vim.ui.input({
-							prompt = "Format: 'arg1' 'arg2' ...",
+							prompt = "Format: 'arg1' 'arg2' -> ",
 							completion = "file_in_path",
 						}, function(input)
 							require("code_runner.commands").run_from_fn(
@@ -35,7 +35,7 @@ return {
 					-- I'm honestly not sure if this even works or not
 					ino = function()
 						vim.ui.input({
-							prompt = "Format: 'file usb fqnb'",
+							prompt = "Format: 'file usb fqnb' -> ",
 							default = vim.fn.getcwd() .. " /dev/USB0 ",
 							completion = "file_in_path",
 						}, function(input)
@@ -63,7 +63,7 @@ return {
 					lua = "lua",
 					python = function()
 						vim.ui.input({
-							prompt = "Format: 'arg1' 'arg2' ...",
+							prompt = "Format: 'arg1' 'arg2' -> ",
 							completion = "file_in_path",
 						}, function(input)
 							require("code_runner.commands").run_from_fn(
