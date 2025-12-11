@@ -26,7 +26,7 @@ return {
 							completion = "file_in_path",
 						}, function(input)
 							require("code_runner.commands").run_from_fn(
-								"cd $dir && gcc $fileName -Wall -Wextra -o $fileNameWithoutExt -lm -g -std=c23 && $dir/$fileNameWithoutExt "
+								"cd $dir && gcc $fileName -Wall -Wextra -o $fileNameWithoutExt -lm -g && $dir/$fileNameWithoutExt "
 									.. input
 							)
 						end)
