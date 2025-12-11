@@ -59,6 +59,11 @@ return {
 							)
 						end)
 					end,
+					java = {
+						"cd $dir &&",
+						"javac $fileName &&",
+						"java -ea $fileNameWithoutExt",
+					},
 					javascript = "node",
 					lua = "lua",
 					python = function()
