@@ -25,12 +25,10 @@ return {
 				{
 					extensions = { "ino" },
 					lsp = "arduino_language_server",
-					lspExec = "arduino-language-server",
 				},
 				{
 					extensions = { "python" },
 					lsp = "basedpyright",
-					lspExec = "basedpyright",
 					lspSettings = {
 						settings = {
 							basedpyright = {
@@ -45,23 +43,19 @@ return {
 				{
 					extensions = { "bash", "sh" },
 					lsp = "bashls",
-					lspExec = "bash-language-server",
 				},
 				{
 					extensions = { "c", "h", "cpp", "hpp" },
 					lsp = "clangd",
-					lspExec = "clangd",
 				},
 				{
 					extensions = { "cmake" },
 					lsp = "cmake",
-					lspExec = "cmake-language-server",
 					formatters = { "cmake-format" },
 				},
 				{
 					extensions = { "css", "scss" },
 					lsp = "cssls",
-					lspExec = "vscode-css-language-server",
 					formatters = { "prettierd" },
 				},
 				{
@@ -72,7 +66,6 @@ return {
 				{
 					extensions = { "html" },
 					lsp = "html",
-					lspExec = "vscode-html-language-server",
 					formatters = { "prettierd" },
 				},
 				{
@@ -83,13 +76,11 @@ return {
 						"typescriptreact",
 					},
 					lsp = "eslint",
-					lspExec = "vscode-eslint-language-server",
 					formatters = { "prettierd" },
 				},
 				{
 					extensions = { "java" },
 					lsp = "jdtls",
-					lspExec = "jdtls",
 					lspSettings = {
 						init_options = {
 							bundles = {
@@ -102,7 +93,6 @@ return {
 				{
 					extensions = { "json" },
 					lsp = "jsonls",
-					lspExec = "vscode-json-language-server",
 					lspSettings = {
 						settings = {
 							json = {
@@ -116,18 +106,15 @@ return {
 				{
 					extensions = { "lua" },
 					lsp = "lua_ls",
-					lspExec = "lua-language-server",
 					formatters = { "stylua" },
 				},
 				{
 					extensions = { "markdown" },
 					lsp = "marksman",
-					lspExec = "marksman",
 				},
 				{
 					extensions = { "nix" },
 					lsp = "nixd",
-					lspExec = "nixd",
 					lspSettings = {
 						settings = {
 							nixpkgs = {
@@ -152,29 +139,28 @@ return {
 					formatters = { "alejandra" },
 				},
 				{
+					extensions = { "qml" },
+					lsp = "qmlls",
+				},
+				{
 					extensions = { "toml" },
 					lsp = "taplo",
-					lspExec = "taplo",
 				},
 				{
 					extensions = { "xml" },
 					lsp = "lemminx",
-					lspExec = "lemminx",
 					formatters = { "xmllint" },
 				},
 				{
 					extensions = { "yaml", "yml" },
 					lsp = "yamlls",
-					lspExec = "yaml-language-server",
 					formatters = { "prettierd" },
 				},
 			}
 
 			for _, language in pairs(languages) do
-				if vim.fn.executable(language.lspExec) == 1 then
-					vim.lsp.config(language.lsp, language.lspSettings or {})
-					vim.lsp.enable(language.lsp)
-				end
+				vim.lsp.config(language.lsp, language.lspSettings or {})
+				vim.lsp.enable(language.lsp)
 			end
 
 			local conformSetup = {
