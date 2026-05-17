@@ -146,6 +146,11 @@ return {
 					lsp = "qmlls",
 				},
 				{
+					extensions = { "sql" },
+					lsp = "sqls",
+					formatters = { "sql_formatter" },
+				},
+				{
 					extensions = { "toml" },
 					lsp = "taplo",
 				},
