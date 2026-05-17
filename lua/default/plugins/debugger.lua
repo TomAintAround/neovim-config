@@ -7,6 +7,7 @@ return {
 			"nvim-neotest/nvim-nio",
 			"theHamsta/nvim-dap-virtual-text",
 			"mfussenegger/nvim-dap-python",
+			"mfussenegger/nvim-jdtls",
 		},
 		config = function()
 			local dap = require("dap")
@@ -54,7 +55,7 @@ return {
 					id = "cppdbg",
 					type = "executable",
 					command = vim.fn.getenv("XDG_STATE_HOME")
-						.. "/home-manager/modules/neovim/debuggers/OpenDebugAD7",
+						.. "/nvim/debuggers/OpenDebugAD7",
 				},
 				["pwa-node"] = {
 					type = "server",
