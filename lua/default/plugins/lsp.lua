@@ -88,7 +88,7 @@ return {
 						init_options = {
 							bundles = {
 								vim.fn.getenv("XDG_STATE_HOME")
-									.. "/home-manager/modules/neovim/debuggers/com.microsoft.java.debug.plugin.jar",
+									.. "/nvim/debuggers/com.microsoft.java.debug.plugin.jar",
 							},
 						},
 					},
