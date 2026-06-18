@@ -126,14 +126,14 @@ return {
 							options = {
 								nixos = {
 									expr = {
-										"(builtins.getFlake \"/etc/nixos\").nixosConfigurations.tomm@desktop.options",
-										"(builtins.getFlake \"/etc/nixos\").nixosConfigurations.tomm@laptop.options",
+										"(builtins.getFlake \"/etc/nixos/system-config/\").nixosConfigurations.desktop.options",
+										"(builtins.getFlake \"/etc/nixos/system-config/\").nixosConfigurations.laptop.options",
 									},
 								},
 								home_manager = {
 									expr = {
-										"(builtins.getFlake \"$XDG_CONFIG_HOME/home-manager\").homeConfigurations.tomm@desktop.options",
-										"(builtins.getFlake \"$XDG_CONFIG_HOME/home-manager\").homeConfigurations.tomm@laptop.options",
+										"(builtins.getFlake \"/etc/nixos/home-manager/tomm/\").homeConfigurations.tomm@desktop.options",
+										"(builtins.getFlake \"/etc/nixos/home-manager/tomm/\").homeConfigurations.tomm@laptop.options",
 									},
 								},
 							},
