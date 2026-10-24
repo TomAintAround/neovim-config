@@ -33,7 +33,7 @@ return {
 						settings = {
 							basedpyright = {
 								analysis = {
-									typeCheckingMode = "recommended",
+									typeCheckingMode = "basic",
 									diagnosticSeverityOverrides = {
 										reportUnusedCallResult = false,
 									},
