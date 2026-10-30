@@ -20,7 +20,7 @@ return {
 			highlight = {
 				enable = true,
 				---@diagnostic disable-next-line
-				disable = function(lang, buf)
+				disable = function(_, buf)
 					local max_filesize = 100 * 1024 -- 100 KB
 					local ok, stats =
 						---@diagnostic disable-next-line
