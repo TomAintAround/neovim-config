@@ -1,0 +1,42 @@
+name: Run Tests
+on:
+  push:
+    paths:
+      - "**/*.lua"
+      - "tests/**"
+      - ".stylua.toml"
+  pull_request:
+    paths:
+      - "**/*.lua"
+      - "tests/**"
+      - ".stylua.toml"
+jobs:
+  runTests:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      success: ${{ steps.build-result.outputs.success }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@main
+
+      - name: Install stylua
+        run: |
+          curl -L https://github.com/JohnnyMorganz/StyLua/releases/latest/download/stylua-linux-x86_64.zip -o stylua.zip
+          unzip stylua.zip -d stylua-bin
+          sudo mv stylua-bin/stylua /usr/local/bin/
+
+      - name: Install luacheck
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y luarocks
+          luarocks install luacheck
+
+      - name: Run tests
+        run: |
+          if bash ./runTests.sh; then
+            echo "success=true" >> $GITHUB_OUTPUT
+          else
+              echo "success=false" >> $GITHUB_OUTPUT
+          fi
