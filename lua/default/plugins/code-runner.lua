@@ -77,6 +77,7 @@ return {
 						end)
 					end,
 				},
+				root_markers = { { "pom.xml", "mvn package" } },
 			})
 			vim.keymap.set(
 				"n",
